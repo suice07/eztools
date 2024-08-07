@@ -2,9 +2,10 @@
 Author: Auier qi.mei@outlook.com
 Date: 2024-08-07 10:53:34
 LastEditors: Auier qi.mei@outlook.com
-LastEditTime: 2024-08-07 16:48:11
+LastEditTime: 2024-08-07 16:49:28
 Copyright (c) 2024 by Auier qi.mei@outlook.com, All Rights Reserved. 
 '''
+import pandas as pd
 def rename_columns(indf, ori_column, new_column):
     '''
         stupid function for single change for column name, will update later

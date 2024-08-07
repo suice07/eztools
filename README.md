@@ -13,4 +13,8 @@ pip install eztools-0.1.1.tar.gz
 ```
 ## Updates
 ### [v0.1.2] - 2024-08-07
-- add json load and dump tool
+#### Changes
+    - add json load and dump tool
+    - add stupid column changing function in dftool, will update later
+#### Known issue
+    - column chaning function over stupid

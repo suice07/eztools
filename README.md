@@ -7,9 +7,14 @@ python setup.py build
 python setup.py sdist
 ```
 ## Installation
+build and install step by step
 ```
 cd eztools/sdist
 pip install eztools-0.1.1.tar.gz
+```
+or you can use the script
+```
+bash install.sh
 ```
 ## Updates
 ### [v0.1.2] - 2024-08-07

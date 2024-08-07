@@ -9,7 +9,7 @@ python setup.py sdist
 ## Installation
 build and install step by step
 ```
-cd eztools/sdist
+cd eztools/dist
 pip install eztools-0.1.1.tar.gz
 ```
 or you can use the script

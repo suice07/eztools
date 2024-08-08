@@ -2,7 +2,7 @@
 Author: Auier qi.mei@outlook.com
 Date: 2024-08-07 10:53:34
 LastEditors: Auier qi.mei@outlook.com
-LastEditTime: 2024-08-07 16:49:28
+LastEditTime: 2024-08-08 11:37:43
 Copyright (c) 2024 by Auier qi.mei@outlook.com, All Rights Reserved. 
 '''
 import pandas as pd
@@ -30,12 +30,16 @@ def contains_any(s, checklist):
         return False
     return any(item in s for item in checklist)
 
-def keyword_column_filter(df, checklist, columnslist):
+def pattern_search(s, patterns):
+    import re
+    return any(bool(re.search(pattern, s)) for pattern in patterns)   
+
+def keyword_column_filter(df, checklist, columnslist, filterfunc=contains_any):
     '''
         given a checklist of keywords, and a columnlist, returns
             subdf_contains: if any column in the column list contains the keyword in the checklist
             subdf_not_contains: not any column in the column list contains any keyword in the keyword checklists
     '''
-    subdf_contains = df[df[columnslist].apply(lambda x: x.apply(lambda y: contains_any(y, checklist)), axis=1).any(axis=1)]
-    subdf_not_contains = df[~df[columnslist].apply(lambda x: x.apply(lambda y: contains_any(y, checklist)), axis=1).any(axis=1)]
+    subdf_contains = df[df[columnslist].apply(lambda x: x.apply(lambda y: filterfunc(y, checklist)), axis=1).any(axis=1)]
+    subdf_not_contains = df[~df[columnslist].apply(lambda x: x.apply(lambda y: filterfunc(y, checklist)), axis=1).any(axis=1)]
     return subdf_contains, subdf_not_contains

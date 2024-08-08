@@ -21,6 +21,6 @@ bash install.sh
 #### Changes
     - add json load and dump tool
     - add stupid column changing function in dftool, will update later
-    - add keyword filtering tool
+    - add keyword filtering tool, add column filter with pattern_search and acurate search
 #### Known issue
     - column chaning function over stupid

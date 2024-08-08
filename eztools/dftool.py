@@ -2,7 +2,7 @@
 Author: Auier qi.mei@outlook.com
 Date: 2024-08-07 10:53:34
 LastEditors: Auier qi.mei@outlook.com
-LastEditTime: 2024-08-08 11:37:43
+LastEditTime: 2024-08-08 11:58:20
 Copyright (c) 2024 by Auier qi.mei@outlook.com, All Rights Reserved. 
 '''
 import pandas as pd
@@ -32,6 +32,8 @@ def contains_any(s, checklist):
 
 def pattern_search(s, patterns):
     import re
+    if pd.isna(s):
+        return False
     return any(bool(re.search(pattern, s)) for pattern in patterns)   
 
 def keyword_column_filter(df, checklist, columnslist, filterfunc=contains_any):

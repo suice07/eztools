@@ -17,10 +17,17 @@ or you can use the script
 bash install.sh
 ```
 ## Updates
+### [v0.1.2] - 2024-08-12
+#### Changes
+    - add retrivial function
+
+#### Known issue
+    - column chaning function over stupid
+
 ### [v0.1.2] - 2024-08-07
 #### Changes
     - add json load and dump tool
     - add stupid column changing function in dftool, will update later
     - add keyword filtering tool, add column filter with pattern_search and acurate search
 #### Known issue
-    - column chaning function over stupid
+    - column changing function over stupid

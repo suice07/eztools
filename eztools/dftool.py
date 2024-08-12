@@ -2,7 +2,7 @@
 Author: Auier qi.mei@outlook.com
 Date: 2024-08-07 10:53:34
 LastEditors: Auier qi.mei@outlook.com
-LastEditTime: 2024-08-08 11:58:20
+LastEditTime: 2024-08-12 15:44:51
 Copyright (c) 2024 by Auier qi.mei@outlook.com, All Rights Reserved. 
 '''
 import pandas as pd
@@ -45,3 +45,13 @@ def keyword_column_filter(df, checklist, columnslist, filterfunc=contains_any):
     subdf_contains = df[df[columnslist].apply(lambda x: x.apply(lambda y: filterfunc(y, checklist)), axis=1).any(axis=1)]
     subdf_not_contains = df[~df[columnslist].apply(lambda x: x.apply(lambda y: filterfunc(y, checklist)), axis=1).any(axis=1)]
     return subdf_contains, subdf_not_contains
+
+def retrieval_column_value(df, col1, value1, col2, valuelist, filter_nan = False):
+    '''
+        trivial subframes via column value1 and value list, if filter_nan, find the lines that col1 == value1, and col2 is NaN
+    '''
+    if filter_nan:
+        subframe = df[(df[col1] == value1) & (df[col2].isin(valuelist))]
+    else:
+        subframe = df[(df[col1] == value1) & (df[col2].isna())]
+    return subframe
